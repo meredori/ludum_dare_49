@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from '../features/counter/counterSlice'
+import goldReducer from '../features/gold/goldSlice'
+import potionsReducer from '../features/potions/potionSlice'
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer,
+        gold: goldReducer,
+        potions: potionsReducer
     },
 })

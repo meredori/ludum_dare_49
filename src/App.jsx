@@ -1,9 +1,13 @@
 import React from 'react';
-import { Counter } from './features/counter/counter';
+import Gold from './features/gold/gold';
+import PotionTable from './features/potions/potionTable';
 
 class App extends React.Component {
     render() {
-      return <Counter></Counter>;
+      return <div>
+        <Gold></Gold>
+        <PotionTable></PotionTable>
+        </div>;
     }
   }
 
