@@ -1,0 +1,12 @@
+[
+    {
+        "id" : 0,
+        "name" : "Glimmering Potion",
+        "baseCost" : [
+            {
+                "herbId" : 0,
+                "amount" : 1
+            }
+        ]
+    }
+]

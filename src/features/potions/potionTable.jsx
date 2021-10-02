@@ -1,15 +1,14 @@
 import React from 'react';
-import { connect  } from 'react-redux'
-import {startBrew} from './potionSlice';
+import Potion from './potion';
+import potionList from './potions.json';
 class PotionTable extends React.Component {
     render() {
+      const potions = potionList.map((potion) => <li key={potion.id}><Potion type={potion}></Potion></li>)
       return <div className="potion-table">
-          <button onClick={() => this.props.startBrew(1)}>Brew Potion</button>
+        <ul>
+          {potions}
+        </ul>
       </div>;
     }
   }
-
-  const mapStateToProps = (state) => ({
-      potions: state.potions
-  })
-export default connect(mapStateToProps, {startBrew})(PotionTable);
+export default PotionTable;

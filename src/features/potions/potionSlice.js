@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  potions: [{}],
-  current: [{}]
+  current: {}
 }
 
 export const potionsSlice = createSlice({
