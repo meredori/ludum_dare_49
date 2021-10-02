@@ -25,7 +25,10 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                use: ["babel-loader"]
+                use: ["babel-loader"],
+                generator: {
+                  filename: 'images/[name][ext][query]'
+                }
               },
               {
                 test: /\.jsx$/,
@@ -33,15 +36,24 @@ module.exports = {
               },
               {
                 test: /\.scss$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']                
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+                generator: {
+                  filename: 'images/[name][ext][query]'
+                }                
               },
             {
                 test: /\.png/,
-                type: 'asset/resource',
+                type: 'asset/resource',                
+                generator: {
+                  filename: 'images/[name][ext][query]'
+                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
+                generator: {
+                  filename: 'images/[name][ext][query]'
+                }
             },
             {
               test: /\.html$/i,
