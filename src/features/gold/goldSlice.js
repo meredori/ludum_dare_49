@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  value: 10,
+  value: 0,
 }
 
 export const goldSlice = createSlice({

@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nothing+You+Could+Do&display=swap');
+
 html,body{
     height: 100%
 }
 body {
     display: flex;
     flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
 }
 main{
     flex: 1 0 auto;
@@ -15,4 +18,8 @@ footer {
 .company-logo{
     width: 90px;
     height: 60px;
+}
+
+.cursive {
+    font-family: 'Nothing You Could Do', cursive;
 }

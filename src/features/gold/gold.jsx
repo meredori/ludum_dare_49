@@ -4,7 +4,7 @@ import { connect  } from 'react-redux'
 class Gold extends React.Component {
     render() {
       return <div className="gold-display">
-          <span>{this.props.gold}</span>
+          <span>Gold: {this.props.gold}</span>
       </div>;
     }
   }
