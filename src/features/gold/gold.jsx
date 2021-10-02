@@ -10,7 +10,7 @@ class Gold extends React.Component {
   }
 
   const mapStateToProps = (state) => ({
-      gold: state.gold.value
+      gold: state.alchemist.gold
   })
   
 export default connect(mapStateToProps)(Gold);

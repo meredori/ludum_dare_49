@@ -1,6 +1,6 @@
 import React from 'react';
 import Potion from './potion';
-import potionList from './potions.json';
+import potionList from './potionsList';
 class PotionTable extends React.Component {
     render() {
       const potions = potionList.map((potion) => <li key={potion.id}><Potion type={potion}></Potion></li>)

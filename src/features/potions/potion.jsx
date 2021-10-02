@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect  } from 'react-redux'
 import {brewPotion} from './potionSlice'
-import herbs from '../herbs/herbs.json'
+import herbList from '../herbs/herbsList'
 
 class Potion extends React.Component {
     render() {
-      const cost = this.props.type.baseCost.map((herb) => <span key={herb.herbId}>{herbs[herb.herbId].name} : {herb.amount}</span>)
+      const cost = this.props.type.baseCost.map((herb) => <span key={herb.herbId}>{herbList[herb.herbId].name} : {herb.amount}</span>)
       return <div className="potion">
           <span className="cursive">{this.props.type.name}</span>
           {cost}
