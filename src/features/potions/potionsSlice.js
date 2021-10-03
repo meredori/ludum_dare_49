@@ -6,7 +6,8 @@ const initialState = {
         "id": null,
         "name" : "",
         "duration" : 0
-    }
+    },
+    hasteDuration : 5
 }
 
 export const potionsSlice = createSlice({
@@ -17,7 +18,7 @@ export const potionsSlice = createSlice({
             switch(action.payload.id){
                 case 1:
                     state.effects.name = "Haste"
-                    state.effects.duration = 5;
+                    state.effects.duration = state.hasteDuration;
                     state.effects.id = 0;
                     break;
             }
@@ -33,10 +34,13 @@ export const potionsSlice = createSlice({
             state.effects.duration = 0;
             state.effects.id = null;
             console.log("Removing Effect");
+        },
+        upgradeHaste(state){
+            state.hasteDuration *= 2;
         }
     }
 });
 
-export const { triggerEffect, finishPotion, removeEffect } = potionsSlice.actions;
+export const { triggerEffect, finishPotion, removeEffect, upgradeHaste } = potionsSlice.actions;
 
 export default potionsSlice.reducer;
