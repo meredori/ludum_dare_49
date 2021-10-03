@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAction, createSlice } from "@reduxjs/toolkit";
 import herbList from "../herbs/herbsData";
 import potionsList from "../potions/potionsList";
 
@@ -9,7 +9,8 @@ const initialState = {
   currentTask: "",
   remainingTime: 0,
   busy: false,
-  taskSpeed: 1000
+  potionSpeed: 1000,
+  gatherSpeed: 1000
 };
 
 export const alchemistSlice = createSlice({
@@ -17,7 +18,7 @@ export const alchemistSlice = createSlice({
   initialState,
   reducers: {
     purchase(state, action) {
-      state.gold -= action;
+      state.gold -= action.payload;
     },
     spendHerbs(state,action){
         action.payload.forEach((herb) => {
@@ -55,12 +56,31 @@ export const alchemistSlice = createSlice({
               switch(potion.id){
                 case 0:
                   state.gold += potion.goldGain;
-                  return;
+                  break;
               }
               
+    },
+    setPotionSpeed(state, action){
+      if(action.payload != null){
+        state.potionSpeed *= action.payload;
+      }
+      else {
+        state.potionSpeed = initialState.potionSpeed;
+      }
+      
+    },
+    upgradePotion(state,action){
+       switch(action.payload){
+         case 0:
+          state.potions[action.payload].goldGain *= 2;
+       }
+    },
+    enablePotion(state){
+      var disabled = state.potions.find(potion => !potion.enabled);
+      state.potions[disabled.id].enabled = true;
     }
   },
 });
-export const { purchase, spendHerbs, setAction, setTaskTime, brewPotion, gatherHerbs } = alchemistSlice.actions;
+export const { purchase, spendHerbs, setAction, setTaskTime, brewPotion, gatherHerbs, upgradePotion, enablePotion, setPotionSpeed } = alchemistSlice.actions;
 
 export default alchemistSlice.reducer;

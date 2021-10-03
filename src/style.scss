@@ -33,3 +33,27 @@ button {
         transform:scale(1.1);
     }
 }
+
+.app {
+    text-align: center;
+    width: auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
+span {
+    display: inline-flex;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect  } from 'react-redux'
 import herbList from '../herbs/herbsData'
 import { setAction, setTaskTime, gatherHerbs } from '../alchemist/alchemistSlice';
+import { triggerEffect } from '../potions/potionsSlice';
 import rarity from '../../enums/rarity';
 
 class GatheringLocation extends React.Component {
@@ -55,7 +56,7 @@ class GatheringLocation extends React.Component {
         }
     }
     render() {
-        const common = this.props.type.herbsAvailable.map((herb) => <span key={herb.herbId}>{herbList[herb.herbId].name} : {herb.rarity}</span>)
+        const common = this.props.type.herbsAvailable.map((herb) => <td key={herb.herbId}>{herbList[herb.herbId].name}</td>)
         var button;
         if(this.state.gathering){
             button = <button onClick={() => this.gatherHerbs(this.props.type.id)}>Stop Gathering</button>
@@ -63,18 +64,18 @@ class GatheringLocation extends React.Component {
         else {
             button = <button disabled={this.props.busy} onClick={() => this.gatherHerbs(this.props.type.id)}>Gather Herbs</button>
         }
-        return <div className="gathering-location">
-            <span className="cursive">{this.props.type.name}</span>
+        return <tr className="gathering-location">
+            <td className="cursive">{this.props.type.name}</td>
             {common}
-            {button}
-        </div>;
+            <td>{button}</td>
+        </tr>;
     }
   }
 
   const mapStateToProps = (state) => ({
     remainingTime: state.alchemist.remainingTime,
-    interval: state.alchemist.taskSpeed,
+    interval: state.alchemist.gatherSpeed,
     busy: state.alchemist.busy,
   })
   
-export default connect(mapStateToProps, {setAction, setTaskTime, gatherHerbs})(GatheringLocation);
+export default connect(mapStateToProps, {setAction, setTaskTime, gatherHerbs, triggerEffect})(GatheringLocation);

@@ -11,7 +11,22 @@ const data = [
         "baseFailure" : 5,
         "time" : 2,
         "count" : 0,
-        "goldGain" : 1
+        "goldGain" : 1,
+        "enabled" : true
+    },
+    {
+        "id" : 1,
+        "name" : "Haste Potion",
+        "baseCost" : [
+            {
+                "herbId" : 1,
+                "amount" : 2
+            }
+        ],
+        "baseFailure" : 50,
+        "time" : 5,
+        "count" : 0,
+        "enabled" : false
     }
 ]
 

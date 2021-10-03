@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import potionsReducer from '../features/potions/potionSlice'
-import alchemistReducer from '../features/alchemist/alchemistSlice'
+import alchemistReducer from '../features/alchemist/alchemistSlice';
+import potionsSlice from "../features/potions/potionsSlice";
+import upgradeReducer from '../features/upgrades/upgradesSlice';
 
 export const store = configureStore({
     reducer: {
-        potions: potionsReducer,
-        alchemist: alchemistReducer
+        alchemist: alchemistReducer,
+        upgrades: upgradeReducer,
+        potions: potionsSlice
     },
 })
