@@ -13,6 +13,8 @@ class UpgradesTable extends React.Component {
           <thead>
             <tr>
               <th>Name</th>
+              <th>Tier</th>
+              <th>Summary</th>
               <th>Cost</th>
               <th>Action</th>
             </tr>

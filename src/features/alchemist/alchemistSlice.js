@@ -69,6 +69,15 @@ export const alchemistSlice = createSlice({
       }
       
     },
+    setGatherSpeed(state, action){
+      if(action.payload != null){
+        state.gatherSpeed *= action.payload;
+      }
+      else {
+        state.gatherSpeed = initialState.potionSpeed;
+      }
+      
+    },
     upgradePotion(state,action){
        switch(action.payload){
          case 0:
@@ -81,6 +90,6 @@ export const alchemistSlice = createSlice({
     }
   },
 });
-export const { purchase, spendHerbs, setAction, setTaskTime, brewPotion, gatherHerbs, upgradePotion, enablePotion, setPotionSpeed } = alchemistSlice.actions;
+export const { purchase, spendHerbs, setAction, setTaskTime, brewPotion, gatherHerbs, upgradePotion, enablePotion, setPotionSpeed, setGatherSpeed } = alchemistSlice.actions;
 
 export default alchemistSlice.reducer;

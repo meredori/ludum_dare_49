@@ -14,7 +14,7 @@ export const upgradesSlice = createSlice({
         purchaseUpgrade(state, action){
             console.log("purchasing upgrade")
             state.upgrades[action.payload].tier++;
-            state.upgrades[action.payload].price *= 10;
+            state.upgrades[action.payload].price = Math.ceil(state.upgrades[action.payload].price * Math.pow(2, state.upgrades[action.payload].tier));
             switch(action.payload){
                 case 0: {
                     if(state.upgrades[action.payload].tier <= potionList.length-1){
