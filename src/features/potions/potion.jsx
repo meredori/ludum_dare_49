@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect  } from 'react-redux';
-import herbList from '../herbs/herbsList';
+import herbList from '../herbs/herbsData';
 import { spendHerbs, setAction, setTaskTime, brewPotion } from '../alchemist/alchemistSlice';
 import potionsList from "../potions/potionsList";
 
@@ -31,7 +31,7 @@ class Potion extends React.Component {
             }
           }
           this.props.setTaskTime(this.props.remainingTime - 1);
-        }, 1000);
+        }, this.props.interval);
       } else {
         console.log("You dont have enough herbs");
       }
@@ -41,13 +41,15 @@ class Potion extends React.Component {
       return <div className="potion">
           <span className="cursive">{this.props.type.name}</span>
           {cost}
-          <button disabled={(this.props.remainingTime != 0)} onClick={() => this.brewPotion(this.props.type.id)}>Brew Potion</button>
+          <button disabled={this.props.busy} onClick={() => this.brewPotion(this.props.type.id)}>Brew Potion</button>
       </div>;
     }
   }
 
   const mapStateToProps = (state) => ({
       herbs: state.alchemist.herbs,
-      remainingTime: state.alchemist.remainingTime
+      remainingTime: state.alchemist.remainingTime,
+      busy: state.alchemist.busy,
+      interval: state.alchemist.taskSpeed
   })
 export default connect(mapStateToProps, {spendHerbs, setAction, setTaskTime, brewPotion})(Potion);

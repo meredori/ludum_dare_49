@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import herbList from "../herbs/herbsList";
+import herbList from "../herbs/herbsData";
 import potionsList from "../potions/potionsList";
 
 const initialState = {
@@ -8,6 +8,8 @@ const initialState = {
   gold: 0,
   currentTask: "",
   remainingTime: 0,
+  busy: false,
+  taskSpeed: 1000
 };
 
 export const alchemistSlice = createSlice({
@@ -27,8 +29,17 @@ export const alchemistSlice = createSlice({
             );
           });
     },
+    gatherHerbs(state,action){
+      state.herbs[action.payload].count++;
+    },
     setAction(state,action){
         state.currentTask = action.payload;
+        if(state.currentTask == ""){
+          state.busy = false;
+        }
+        else {
+          state.busy = true;
+        }
     },
     setTaskTime(state,action){
         state.remainingTime = action.payload;
@@ -41,10 +52,15 @@ export const alchemistSlice = createSlice({
                 potion.count,
                 potion.name
               );
-              state.gold += 2;
+              switch(potion.id){
+                case 0:
+                  state.gold += potion.goldGain;
+                  return;
+              }
+              
     }
   },
 });
-export const { purchase, spendHerbs, setAction, setTaskTime, brewPotion } = alchemistSlice.actions;
+export const { purchase, spendHerbs, setAction, setTaskTime, brewPotion, gatherHerbs } = alchemistSlice.actions;
 
 export default alchemistSlice.reducer;

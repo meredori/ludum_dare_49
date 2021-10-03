@@ -10,7 +10,8 @@ const data = [
         ],
         "baseFailure" : 5,
         "time" : 2,
-        "count" : 0
+        "count" : 0,
+        "goldGain" : 1
     }
 ]
 
