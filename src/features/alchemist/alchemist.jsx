@@ -14,6 +14,14 @@ class Alchemist extends React.Component {
           <td>Time:</td>
           <td>{this.props.remainingTime}</td>
         </tr>
+        <tr>
+          <td>Effect:</td>
+          <td>{this.props.effects.name}</td>
+        </tr>
+        <tr>
+          <td>Remaining:</td>
+          <td>{this.props.effects.duration}</td>
+        </tr>
         </tbody>
       </table>
     );
@@ -23,6 +31,7 @@ class Alchemist extends React.Component {
 const mapStateToProps = (state) => ({
   currentTask: state.alchemist.currentTask,
   remainingTime: state.alchemist.remainingTime,
+  effects: state.potions.effects
 });
 
 export default connect(mapStateToProps)(Alchemist);
