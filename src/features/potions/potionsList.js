@@ -12,7 +12,8 @@ const data = [
         "time" : 2,
         "count" : 0,
         "goldGain" : 1,
-        "enabled" : true
+        "enabled" : true,
+        "summary": "Creates gold from green herbs"
     },
     {
         "id" : 1,
@@ -26,7 +27,8 @@ const data = [
         "baseFailure" : 50,
         "time" : 5,
         "count" : 0,
-        "enabled" : false
+        "enabled" : false,
+        "summary": "Increases potion speed by 25% for a short while"
     }
 ]
 

@@ -63,7 +63,8 @@ class Potion extends React.Component {
     render() {
       const cost = this.props.type.baseCost.map((herb) => <td key={herb.herbId}>{herbList[herb.herbId].name} : {herb.amount}</td>)
       return <tr className="potion">
-          <td className="cursive">{this.props.type.name}</td>
+          <td>{this.props.type.name}</td>
+          <td>{this.props.type.summary}</td>
           {cost}
           <td>{this.props.type.baseFailure}</td>
           <td><button disabled={this.props.busy} onClick={() => this.brewPotion(this.props.type.id)}>Brew Potion</button></td>

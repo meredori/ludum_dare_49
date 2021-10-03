@@ -13,6 +13,7 @@ class PotionTable extends React.Component {
           <thead>
             <tr>
               <th>Name</th>
+              <th>Summary</th>
               <th>Ingredients</th>
               <th>Failure Chance</th>
               <th>Action</th>
